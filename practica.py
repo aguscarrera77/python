@@ -143,5 +143,73 @@ age=20
 if age>20:
     print('Es mayor a 18')
 else:
-     print('Es menor a 18')      
-    
+     print('Es menor a 18')
+
+#elseif es generar una condicion mas al if.
+
+nota=45
+
+if nota>=90:
+     print('Su nota es Excelente')
+elif nota>=70:
+     print('Esta aprobado.')
+else:
+     print('Usted va a recuperatorio')
+
+#combinamos condicionales con operadores (and or not)
+
+edad=40
+anotado_curso=False
+
+if edad>=18 and anotado_curso:
+     print('Usted es mayor a 18 y esta anotado')
+elif edad>=18 and not anotado_curso:
+     print('Es mayor pero no esta anotado')
+else: 
+    print('Usted es menor,necesita autorizacion')
+
+#Combinar condiciones con or y dos booleanos.
+
+llueve=True
+uso_paraguas= False
+
+if llueve or uso_paraguas:
+     print('Me mojo')
+else:
+    print('Salio el sol no me voy a mojar')
+
+
+#usar not ....invierte el valor de la condicion.
+
+conectado=False #False 
+
+if not conectado:
+     print('No estas conectado')#not conectado es true.if se imprime.
+else:
+     print('Estas conectado.')
+
+#Mezclar and or not.
+
+#edad= 17
+#tiene_permiso=True
+#acompanado=True
+
+#if(edad>=18 or tiene_permiso) and not acompanado:
+    # print('Puedo conducir') 
+#else:
+     #print('No puedo conducir')
+
+#Operacion matematica dentro del condicional
+edad=int(input('Ingrese la edad'))
+jubilacion=65 - edad
+
+if edad<65:
+     print(f'Te faltan {jubilacion} anos para jubilarte'.upper())
+else:
+    print('ya podes jubilarte')
+
+
+
+
+
+
