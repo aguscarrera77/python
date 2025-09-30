@@ -200,13 +200,109 @@ else:
      #print('No puedo conducir')
 
 #Operacion matematica dentro del condicional
-edad=int(input('Ingrese la edad'))
-jubilacion=65 - edad
+#edad=int(input('Ingrese la edad'))
+#jubilacion=65 - edad
 
-if edad<65:
-     print(f'Te faltan {jubilacion} anos para jubilarte'.upper())
-else:
-    print('ya podes jubilarte')
+#if edad<65:
+     #print(f'Te faltan {jubilacion} anos para jubilarte'.upper())
+#else:
+    #print('ya podes jubilarte')
+#METODOS DE CADENA.
+
+#1.LOWER es convertir el string en minisculas.
+
+name='PYTHON'
+
+print(name.lower())
+
+#de forma directa un metodo.
+
+print('HOLA ESTOY HACIENDO EL CURSO'.lower())
+
+#upper es mayuscula.
+
+nombrado='agustin'
+print(f'Mi nombre es {nombrado.upper()}')
+
+#title transforma en mayusculas la primera letra de las palabras que componen el string.
+
+frase='mi buenos aires querido.'
+print(f'el tango se llama: {frase.title()}')
+
+#strip quitar espacios.
+
+password='   hola.    '
+print(password.strip())
+
+#replace reemplaza texto del string.
+
+lenguaje='Me gusta usar Java.'
+
+print(f'Cambio mi lenguaje {lenguaje.replace("Java","Python")}')
+
+#split elijo el caracter que voy a usar para separar los elementos de la lista.
+
+colores='Rojo,negro,blanco'
+print(colores.split(','))
+
+#find buscar la posicion de un caracter.
+palabra='Estoy aprendiendo Python'
+
+#variable
+print(palabra.find('Python'))
+#f string
+print(f"Posicion de thon {palabra.find('thon')}")
+#directamente.
+print("banana ".find('na'))
+
+#count cuenta los caracteres.
+
+frutas= 'frutilla'
+
+#variable.
+print(frutas.count('o'))
+
+#directo
+
+print('otorrinolaringologo'.count('o'))
+
+#lista colecciones de valores ordenadas y mutables.
+
+fruta=['anana','melon','pera',3]
+print(fruta)
+
+print(fruta[0])
+print(fruta[-1])#trae el ultimo valor de la lista.
+
+#agregar un valor a la lista.
+
+fruta.append('sandia')#agrega al final de la lista.
+fruta.insert(1,10) #insert elegimos primero la posicion coma el elemento a insertar.
+print(fruta)
+
+#elimino elementos de la lista.
+
+fruta.remove('pera')#remove elimina un elemento con su nombre.Al primero que coincide.
+print(fruta)
+
+borrar=fruta.pop(0)#borra por indice.
+print(borrar)
+print(fruta)
+
+#tuple grupo de elementos que estan ordenados pero no se pueden modificar.
+
+numbers=(10,20,30,40)#Sintaxis entre parentisis.
+print(numbers[-1])#busco por indice.
+
+#Combinamos listas y tuple
+
+coordenadas=[(0,0),(1,1),(2,2),(3,3)]
+print(coordenadas[0])
+print(coordenadas[2][0])
+
+coordenadas.append((4,4))
+print(coordenadas)
+
 
 
 
