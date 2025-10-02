@@ -303,6 +303,149 @@ print(coordenadas[2][0])
 coordenadas.append((4,4))
 print(coordenadas)
 
+#set elementos desordenados(sin indice) y sin duplicados.
+
+cosas={'buzo','campera',1,'boxer',1,'buzo'}
+
+print(cosas)
+
+#agregar un elemento
+
+cosas.add('pullover')
+
+#discard elimina un elemento si existe.Sino esta no da error.
+cosas.discard('campera')
+
+print(cosas)
+
+#voy llamar a dos conjuntos y traer elementos que coincidan y elementos propios de cada conjunto.
+
+a={1,2,3,4}
+b={4,5,6,7,2}
+
+#Unir los dos conjuntos. Es usando el simbolo | .
+print(a | b)
+
+#Interseccion de conjuntos.Son los elementos comunes a los dos conjuntos.&
+
+print(a & b )
+
+#Diferencia entre los dos conjuntos. Los elementos que traemos son los particulares a cada conjunto.
+
+print(a - b)
+print(b-a)
+ 
+# ejemplo de una red social.
+
+seguidores={'Ana','Rosario','Juan Carlos','Pedro'}
+seguidos={'Patricia','Julian','Pedro','Ana'}
+
+#Todos los participantes de mi perfil en la red social.
+
+print(seguidores | seguidos)
+
+#Personas que te siguen y vos seguis.
+
+print(seguidores & seguidos)
+
+#Personas que me siguen y no los que yo sigo.
+
+print(seguidores- seguidos)
+
+#Ecommerce. Dos sucursales.
+sucursal_A={ 'mouse','teclado' ,'monitor'}
+sucursal_B={'teclado','memoria','monitor'}
+
+print(sucursal_A | sucursal_B)
+print(sucursal_A & sucursal_B)
+print(sucursal_B-sucursal_A)
+
+#Diccionario conjunto de elementos que esta determinado por clave y valor. key=value.
+
+perfil={"nombre":"Ana",'edad':24 }
+
+print(perfil)
+print(perfil['edad'])
+print(perfil['nombre'],perfil['edad'])
+
+#Agregar y modificar elementos del diccionario.
+
+perfil['edad']=44 #Modifico la edad del perfil.
+perfil['profesion']='Maestro'#agregar elemento.
+
+print(perfil)
+
+#Eliminar un elemento.
+
+perfil.pop('profesion')#elimino el elemento profesion.
+del perfil['edad']#Otra forma de eliminar elemento.
+print(perfil)
+
+# esta es la manera de traer solos las claves o key/como traer todos los valores/y traemos keys y valores juntos.
+
+pares={'Apellido':'Galan','edad':120,'Profesion':'Locutor','Ciudad de Nacmiento':'Buenos Aires'}
+
+pares.keys() #llamas las claves.
+print(pares.keys())
+pares.values()#llama a los valores
+print(pares.values())
+pares.items()#llama el tandem
+print(pares.items())
+
+#Simular la carrito de compras.
+
+carrito={
+"mouse":1,
+'teclado':0,
+"monitor":3,
+'telefonos':5
+}
+#traer la cantidad de productos de un elemento y sumar al stock 1 unidad.
+
+print(carrito['monitor'])
+
+carrito['teclado']+=1
+print(carrito['teclado'])
+
+#EJERCICIOS COMBINADOS DE COLECCIONES.
+
+persona=[{
+'nombre':'Roberto',
+'edad':105,
+'hobbies':('cantar','correr')},
+{'nombre':'Carlos',
+ 'edad':120,
+'hobbies':('bailar','futbol')
+}]
+
+print(persona[0])
+
+#Construir dos perfiles y ver condiciones.
+
+perfil1={ 'nombre':'Martin','edad':36, 'deportes':('basket','tejo') }
+perfil2={
+ 'nombre' :'Melisa',
+ 'edad':54,
+ 'deportes':('caminar','cuidar')
+}
+#comparar edades.
+
+if perfil1['edad'] > perfil2['edad']:
+     print(f"{perfil1['nombre']} es mayor a {perfil2['nombre']}")
+else:print(f"{perfil2['nombre']} es mayor o tiene la misma edad")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
