@@ -434,6 +434,83 @@ if perfil1['edad'] > perfil2['edad']:
      print(f"{perfil1['nombre']} es mayor a {perfil2['nombre']}")
 else:print(f"{perfil2['nombre']} es mayor o tiene la misma edad")
 
+#Bucles While y For. bucle es una repeticion de codigo contralada por una condicion, si esa condicion es verdadera el bucle se repite sino es falsa corta.
+
+n=1# Inicio del bucle.
+
+while n<=5:# while y la condicion en la misma linea.
+     print('Numero de iteracion: ',n)
+     n+=1
+#n=1 True se imprime
+#n=1 + 1=2 True se imprime
+#n=2 + 1=3 True se imprime
+#n=3 + 1=4 True se imprime
+#n=4 + 1= 5 True se imprime
+#n=4 + 1=6 False cierra el bucle
+
+#bucle infinito es cuando la condicion es siempre true por lo tanto no corta el bucle.
+#Podemos cortar el bucle infinito con una orden llamada break.
+
+x=3 #Inicio del bucle.
+
+while x > 0:
+     print(x)
+     x-=1
+
+#Usamos break
+
+i=1
+
+while True:#entra al bucle while porque siempre es True.
+     print(i)
+     if i==5:#evalua el if antes de imprimir.Cuando el if es true corta el bucle porque se prende el break.
+          break
+
+     i+=1
+
+#Continue permite saltar alguna condicion y volver al while. Hasta el while sea false.
+
+y=0
+while y<10:
+     y+=1
+     if y % 2==0:#y es par o no?
+          continue #salta la condicion if y vuelve al while.
+     print(y)
+
+#Validar una contrasena.
+
+#clave='python'
+#ingreso=""
+
+#while ingreso.lower()!=clave:
+     #ingreso=input('INGRESE SU CLAVE EN MINUSCULA POR FAVOR:')
+#print('Acceso Correcto')
+
+#juego de adivinar un numero.
+
+import random #importando una biblioteca de python y traigo el random que es un modulo que genera numeros aleatorios.
+
+secreto= random.randint(1,10)
+tiro=None
+
+while tiro!=secreto:
+     tiro=int(input('Adivina el numero de 1 a 10'))
+     if tiro<secreto:
+          print('Su numero es demasiado bajo')
+     elif tiro>secreto:
+          print('Su numero es demasiado vuelto')
+     
+print('Su numero es correcto')
+
+
+     
+
+
+
+
+
+
+
 
 
 
