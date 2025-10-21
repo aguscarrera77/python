@@ -69,31 +69,121 @@ importe_producto= compra_descuento(100,20)
 
 compra_descuento(200,40)
 
-# Return con varias variables.
+# Return con varias variables. Multiples retornos.
 
-def operaciones(a,b):
-    suma= a + b
-    resta= a - b
-    producto= a * b
-    division= a/b
-    print(f"Suma:{suma},Resta:{resta},Multipliacion:{producto},y divide: {division}")
-    return suma,resta,producto,division
+#def operaciones(a,b):
+    #suma= a + b
+    #resta= a - b
+    #producto= a * b
+    #division= a/b
+    #print(f"Suma:{suma},Resta:{resta},Multipliacion:{producto},y divide: {division}")
+    #return suma,resta,producto,division
 
-operaciones(10,2)
+#operaciones(10,2)
 
-w,x,y,z= operaciones(20,4)
+#w,x,y,z= operaciones(20,4)
 
-print(y)
+#print(y)
 
-def datos_alumno(apellido,nota):
-    aprobado= nota>=70
-    return apellido,nota,aprobado
+#def datos_alumno(apellido,nota):
+    #aprobado= nota>=70
+    #return apellido,nota,aprobado
 
-apellido,nota,estado=datos_alumno()
+#nombre,nota,estado= datos_alumno('Agustin',70)
+#print(nombre,'-','Aprobado' if estado else 'Desaprobado')
+
+#def datos_alumnos(nombre,nota):
+    #if nota >=70:
+        #condicion='Aprobado'
+    #else: condicion='Desaprobado'
+    #return {
+        #'nombre':nombre,
+       # 'nota':nota,
+        #'estado':condicion,
+   # }
+
+#alumno=datos_alumnos('Carlos',65)
+#alumno1=datos_alumnos('Roberto',70)
+#print(f"{alumno['nombre']}-{alumno['estado']}")
+#print(f"{alumno['nombre']}-{'Aprobado' if alumno['aprobado']else 'Desaprobado'}-{alumno['nota']} ")
+#print(f"{alumno1['nombre']}-{'Aprobado' if alumno1['aprobado']else 'Desaprobado'}  ")
+
+# parametro definido. Multiples retornos. Cambio en el valor de la moneda.
+
+def convertir_moneda(pesos,dolar=1000):
+    en_dolares=pesos/dolar
+    en_euros=pesos/(dolar*1.10)
+    return en_dolares,en_euros
+
+usd,eur=convertir_moneda(20000,1500)
+print('Son dolares',usd)
+print('Son euros',eur)
 
 
 
-print(apellido,"-",'aprobado' if estado else 'desaprobado')
+#funciones lambda funciones anonimas. Aquellas que no tienen nombre. Son funciones simples de poco codigo. 
+#Sintaxis es lambda argumento: expresion.
+
+doble= lambda x: x*2
+
+print(doble(10))
+
+adicion= lambda a,b: a+b
+
+print(adicion(10,4))
+
+mayor=lambda a,b: a if a>b else b 
+print(mayor(10,5))
+print(mayor(4,8))
+
+#Lambda sin argumentos.
+
+hi= lambda: 'Hola a todos'
+print(hi())
+
+#map() aplicar la funcion a cada elemento.
+
+numeros=[1,2,3,4]
+
+doblete=list(map(lambda x:x*2,numeros))
+print(doblete)
+
+#filter filtra elementos que cumplen con una condicion.
+
+numeros1=[1,2,3,4,5]
+pares=list(filter(lambda x:x%2==0,numeros1))
+
+print(pares)
+
+#sorted. ordenar de acuerdo a un criterio. Vamos usar un diccionario y ordenados de acuerdo a una key.
+
+persons=[('Carlos',104),('Roberto',98),('Agustin',48),('Lucas',30)]
+
+personas_ordenadas= sorted(persons,key=lambda x:x[1])
+print(personas_ordenadas)
+
+
+
+#Docstring dentro de la funcion dar una explicacion de lo que hace esa funcion.
+
+def recibimiento(name):
+    """ Saludar con un nombre """
+    return "hola" + name
+
+print(recibimiento('Carolina'))
+print(recibimiento.__doc__)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
