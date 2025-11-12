@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi sitio flask</title>
+</head>
+<body>
+    <h1>Alumno: {{info.nombre}}</h1>
+    <p>El curso es: {{info.curso}}</p>
+    <p>Puntaje: {{info.nota}}</p>
+    {% if info.nota>=7%}
+    <h4>Aprobado.</h4>
+    {% else %}
+    <h4>Desaprobado.</h4>
+    {% endif %}
+
+</body>
+</html>
