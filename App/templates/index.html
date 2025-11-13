@@ -6,14 +6,18 @@
     <title>Mi sitio flask</title>
 </head>
 <body>
-    <h1>Alumno: {{info.nombre}}</h1>
-    <p>El curso es: {{info.curso}}</p>
-    <p>Puntaje: {{info.nota}}</p>
-    {% if info.nota>=7%}
-    <h4>Aprobado.</h4>
-    {% else %}
-    <h4>Desaprobado.</h4>
-    {% endif %}
-
+    <h1>Alumnos del curso de Python</h1>
+    <ul>
+    {% for a in alumnos %}
+        <li>
+            {{ a.nombre }}- Nota: {{ a.nota }}
+            {% if a.nota >= 7 %}
+            Usted esta aprobado.
+            {% else %}
+            No estas aprobado.
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
 </body>
 </html>
