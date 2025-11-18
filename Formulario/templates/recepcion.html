@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos del perfil</title>
+</head>
+<body>
+    <h1>Perfiles Registrados</h1>
+
+    {% if perfiles %}
+    <table border="1">
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Edad
+            </th>
+            <th>
+                Telefono
+            </th>
+        </tr>
+        {% for perfil in perfiles %}
+        <tr>
+            <td>
+                {{ perfil.nombre }}
+            </td>
+            <td>
+                {{ perfil.edad }}
+            </td>
+            <td>
+                {{ perfil.fono }}
+            </td>
+
+
+
+        </tr>
+        {% endfor %}
+
+
+
+
+    </table>
+    {% else %}
+    <p>No hay registros.</p>
+    {% endif %}
+</body>
+</html>
