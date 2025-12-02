@@ -1,7 +1,8 @@
-from flask import Flask,request,render_template,redirect,url_for
+from flask import Flask,request,render_template,redirect,url_for,flash
 import sqlite3
 
 app=Flask(__name__)
+app.secret_key="clave_secreta_1234"
 
 #Conexion y creacion de una base de datos.la funcion propia de python get_db conecta a la base de datos.
 def get_db():
@@ -25,14 +26,32 @@ def index():
 @app.route("/agregar",methods=["GET","POST"]) #metodos procesan el envio del formulario(post) y muestra el formulario en la pagina por pedido de get.
 def agregar():
     if request.method=="POST":#compruebo si la solicitud es post o no. el usuario lleno los datos y envio el formulario.
-        nombre=request.form['nombre']
-        apellido=request.form['apellido']
-        edad=request.form['edad']
-        grado=request.form['grado']
-        db=get_db()
-        db.execute(
+        nombre=request.form['nombre'].strip()
+        apellido=request.form['apellido'].strip()
+        edad=request.form['edad'].strip()
+        grado=request.form['grado'].strip()
+        #validar linea por linea
+        if len(nombre)<2:
+            flash("El nombre debe tenar 2 o mas caracteres.","error")
+            return redirect(url_for("agregar"))
+        if len(apellido)<2:
+            flash("El apellido debe tener 2 o mas caracteres","error")
+            return redirect(url_for("agregar"))
+        if not edad.isdigit(): 
+            flash("Introducir numero entero.",'error')
+            return redirect(url_for("agregar"))
+        edad=int(edad)
+        if edad <18 or edad>110:
+            flash("Edad permitida mayores a 18.",'error')
+            return redirect(url_for("agregar"))
+        if len(grado)<1:
+            flash("El grado no puedo estar vacio.","error")
+            return redirect(url_for("agregar"))
+        with get_db() as db:
+            db.execute(
             "INSERT INTO estudiantes(nombre,apellido,edad,grado) VALUES (?,?,?,?)",(nombre,apellido,edad,grado))#Ejecuta la insersion de los valores.
         db.commit()
+        flash("Estudiante agregado correctamente.",'exito')
         return redirect(url_for('ver_estudiantes'))
     return render_template("agregar.html")
 

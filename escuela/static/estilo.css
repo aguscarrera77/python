@@ -1,0 +1,15 @@
+.alerta {
+    padding:10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+/* cartel de error */
+
+.alerta.error {
+    background-color: #ffb3b3;
+    color:#900;
+    border:1px solid #cc0000;
+
+
+}
