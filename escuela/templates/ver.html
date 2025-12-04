@@ -25,6 +25,11 @@
         <td>{{ e.apellido }}</td>
         <td>{{ e.edad }}</td>
         <td>{{ e.grado }}</td>
+    <td>
+        <a href="/editar/{{ e.id }}">Editar</a>
+        <a href="/eliminar/{{ e.id }}">Eliminar</a>
+
+    </td>
 </tr>
 {% endfor %}
     </table>

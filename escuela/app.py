@@ -17,7 +17,7 @@ with get_db() as db:
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nombre text not null,
         apellido text not null,
-        edad intenger not null,
+        edad integer not null,
         grado text not null)
 """)#comando CREATE crea estructuras en sql por ej una base de datos, una tabla. Los tipos de valores que usan las bases de datos son los enteros, text (strings), boleanos y float para decimales.
 @app.route("/")
@@ -64,17 +64,17 @@ def ver_estudiantes():
 @app.route("/editar/<int:id>",methods=["GET","POST"])
 def editar(id):
     db=get_db()
-    if request.method== "post":
+    if request.method== "POST":
         nombre=request.form["nombre"]
-        apellido=request.form["apelido"]
+        apellido=request.form["apellido"]
         edad=request.form["edad"]
         grado=request.form["grado"]
         db.execute("UPDATE estudiantes SET nombre=?,apellido=?,edad=?,grado=? WHERE id=?",(nombre,apellido,edad,grado,id))
         db.commit()
         db.close()
         return redirect(url_for("ver_estudiantes"))
-    estudiantes=db.execute("SELECT * estudiantes WHERE id=?"(id,)).fetchone()
-    return render_template('editar.html',estudiantes=estudiantes)
+    estudiantes=db.execute("SELECT * FROM estudiantes WHERE id=?",(id,)).fetchone()
+    return render_template('editar.html',e=estudiantes)
     
 @app.route("/eliminar/<int:id>")
 def eliminar(id):
