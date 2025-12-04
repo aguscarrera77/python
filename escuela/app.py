@@ -31,21 +31,23 @@ def agregar():
         edad=request.form['edad'].strip()
         grado=request.form['grado'].strip()
         #validar linea por linea
+        errores=[]
         if len(nombre)<2:
-            flash("El nombre debe tenar 2 o mas caracteres.","error")
-            return redirect(url_for("agregar"))
+            errores.append("El nombre debe tener al menos 2 caracteres")
         if len(apellido)<2:
-            flash("El apellido debe tener 2 o mas caracteres","error")
-            return redirect(url_for("agregar"))
-        if not edad.isdigit(): 
-            flash("Introducir numero entero.",'error')
-            return redirect(url_for("agregar"))
-        edad=int(edad)
-        if edad <18 or edad>110:
-            flash("Edad permitida mayores a 18.",'error')
-            return redirect(url_for("agregar"))
+            errores.append("El apellido debe tener al menos dos caracteres")
+        if not edad.isdigit():
+            errores.append("La edad debe ser un numero entero.")
+        else:
+            edad=int(edad)
+            if edad<18 or edad>120:
+                errores.append("La edad es fuera del rango permito.")
         if len(grado)<1:
-            flash("El grado no puedo estar vacio.","error")
+            errores.append("El grado no puede estar vacio.")
+        #si lee ok sigue si detecta errores los marca.
+        if errores:
+            for e in errores:
+                flash(e,"error")
             return redirect(url_for("agregar"))
         with get_db() as db:
             db.execute(
@@ -74,7 +76,7 @@ def editar(id):
         db.close()
         return redirect(url_for("ver_estudiantes"))
     estudiantes=db.execute("SELECT * FROM estudiantes WHERE id=?",(id,)).fetchone()
-    return render_template('editar.html',e=estudiantes)
+    return render_template('editar.html',estudiantes=estudiantes)
     
 @app.route("/eliminar/<int:id>")
 def eliminar(id):

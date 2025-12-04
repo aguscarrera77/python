@@ -10,13 +10,11 @@
     <h1>Registro de Alumno</h1>
 {% with mensajes= get_flashed_messages(with_categories=true) %}
     {% if mensajes %}
+    <ul>
     {% for categoria, mensaje in mensajes %}
-    <div class="alerta {{ categoria }}"> 
-        {{ mensaje }}
-
-
-    </div>
+    <li class="alerta {{ categoria }}">{{ mensaje }}</li>
     {% endfor %}
+    </ul>
     {% endif %}
     {% endwith %}
 
