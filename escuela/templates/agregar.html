@@ -8,15 +8,18 @@
 </head>
 <body>
     <h1>Registro de Alumno</h1>
-{% with mensajes= get_flashed_messages(with_categories=true) %}
+{% with mensajes = get_flashed_messages(with_categories=true) %}
     {% if mensajes %}
     <ul>
-    {% for categoria, mensaje in mensajes %}
-    <li class="alerta {{ categoria }}">{{ mensaje }}</li>
-    {% endfor %}
+        {% for categoria, mensaje in mensajes %}
+        {% if categoria == 'error' %}
+        <li class="alerta error">{{ mensaje }}</li>
+        {% endif %}
+        {% endfor %}
     </ul>
     {% endif %}
-    {% endwith %}
+{% endwith %}
+
 
     <form action="" method="post" >
 <label for="nombre">Nombre</label>

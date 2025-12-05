@@ -52,7 +52,7 @@ def agregar():
         with get_db() as db:
             db.execute(
             "INSERT INTO estudiantes(nombre,apellido,edad,grado) VALUES (?,?,?,?)",(nombre,apellido,edad,grado))#Ejecuta la insersion de los valores.
-        db.commit()
+            db.commit()
         flash("Estudiante agregado correctamente.",'exito')
         return redirect(url_for('ver_estudiantes'))
     return render_template("agregar.html")
