@@ -19,17 +19,6 @@
         </ul>
     {% endif %}
 {% endwith %}
-{% with mensajes = get_flashed_messages(with_categories=true) %}
-    {% if mensajes %}
-        <ul>
-        {% for categoria, mensaje in mensajes %}
-            {% if categoria == 'error' or categoria == 'exito' %}
-                <li class="alerta {{ categoria }}">{{ mensaje }}</li>
-            {% endif %}
-        {% endfor %}
-        </ul>
-    {% endif %}
-{% endwith %}
 
 
     <table>

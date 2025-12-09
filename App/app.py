@@ -5,22 +5,7 @@ app=Flask(__name__)
  #   return render_template("index.html")
 #@app.route('/saludar')
 #def saludo():
-#    return render_template("saludar.html")
 
-#@app.route("/usuario/<nombre>")
-#def perfil(nombre):
-   # nombre='Agustin'
-    #return render_template("usuario.html",nombre=nombre)
-
-#@app.route('/')
-#def curso():
-    #datos={
-    #    "nombre":"Agustin",
-     #   "curso":'Python',
-     #   "nota":10
-    #}
-    #return render_template("index.html",info=datos)
-@app.route('/')
 def perfiles():
     alumnos=[
     {"nombre":"Roberto","nota":10},
