@@ -76,7 +76,7 @@ def editar(id):
         db.close()
         return redirect(url_for("ver_estudiantes"))
     estudiantes=db.execute("SELECT * FROM estudiantes WHERE id=?",(id,)).fetchone()
-    return render_template('editar.html',estudiantes=estudiantes)
+    return render_template('editar.html',e=estudiantes)
     
 @app.route("/eliminar/<int:id>")
 def eliminar(id):
